@@ -1,0 +1,59 @@
+end:
+  streams:
+    - type: 1
+      demands: { bandwidth: 4.0 }
+
+edge:
+  nodes:
+    - type: 1
+      resources: { cpu: 1, ram: 2, bandwidth: 40, gpu: 0 }
+    - type: 2
+      resources: { cpu: 2, ram: 4, bandwidth: 40, gpu: 0 }
+    - type: 3
+      resources: { cpu: 4, ram: 8, bandwidth: 40, gpu: 2 }
+  models:
+    - id: 1
+      demands: { cpu: 0.5, ram: 0.2, gpu: 0 }
+      accuracy: 0.625
+    - id: 2
+      demands: { cpu: 0.5, ram: 0.4, gpu: 0 }
+      accuracy: 0.650
+    - id: 3
+      demands: { cpu: 1, ram: 0.6, gpu: 0 }
+      accuracy: 0.675
+    - id: 4
+      demands: { cpu: 1, ram: 0.8, gpu: 0 }
+      accuracy: 0.700
+    - id: 5
+      demands: { cpu: 1, ram: 1, gpu: 0 }
+      accuracy: 0.725
+    - id: 6
+      demands: { cpu: 1, ram: 2, gpu: 0 }
+      accuracy: 0.750
+    - id: 7
+      demands: { cpu: 2, ram: 4, gpu: 0 }
+      accuracy: 0.775
+    - id: 8
+      demands: { cpu: 2, ram: 4, gpu: 1 }
+      accuracy: 0.800
+
+cloud:
+  resources:
+    bandwidth: 100
+  model:
+    id: 0
+    accuracy: 0.9
+
+params:
+  runs: 10
+  alpha: [0.10]
+  paradigms:
+    - ["PureEdge", "PureCloud", "ECS-CLB"]
+  number_each_edge_type: [5]
+  edge_order: ["InOrder"]
+
+  policy:
+    - algorithm: "Heuristic"
+      s: [10000]
+      parts: [1,10,20,30,40,50,60,70,80,90,100]
+      parallelization: [True]

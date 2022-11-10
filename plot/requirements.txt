@@ -1,0 +1,14 @@
+numpy
+matplotlib
+jupyter
+jupyterlab
+scipy
+ipython
+ipympl
+paretoset
+seaborn
+pandas
+SciencePlots
+tikzplotlib
+palettable
+pymoo

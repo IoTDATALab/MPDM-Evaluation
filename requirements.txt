@@ -1,0 +1,17 @@
+pyyaml
+epyc
+numpy
+attrs
+click
+sortedcontainers
+tqdm
+switchlang
+typing_extensions
+platypus-opt
+paretoset
+tinydb
+scipy
+psutil
+py-range-parse
+pyaugmecon
+pyomo==6.1.2
